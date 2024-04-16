@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 abstract class Person
 {
+    public string nomination {get; protected set;}
     private string name;
     public int calls {get; private set;}
     private double prop;
@@ -17,22 +18,16 @@ abstract class Person
     {
         prop = (double) calls * 100 / count;
     }
-    public void Print()
+    public static void NewPrint(Person[] a, int count)
     {
-        Console.WriteLine("{0,-40:s}{1,-20:f0}{2:f3}", name, calls, prop);
+        Console.WriteLine("Имя участника номинации {0,-16:s}{1,-20:s}{2:s}", a[0].nomination, "Количество голосов", "Доля от общего количества ответов");
+        foreach (Person i in a) 
+        {
+            i.Proportion(count);
+            Console.WriteLine("{0,-40:s}{1,-20:f0}{2:f3}", i.name, i.calls, i.prop);
+        }
     }
-}
-class Person_of_the_year : Person
-{
-    public Person_of_the_year(string _name, int _calls) : base(_name, _calls) {}
-}
-class Discovery_of_the_year : Person
-{
-    public Discovery_of_the_year(string _name, int _calls) : base(_name, _calls) {}
-}
-class Program
-{
-    static void Sort(Person[] a)
+    public static void Sort(Person[] a)
     {
         for (int i = 1; i < a.Length; i++)
         {
@@ -46,6 +41,24 @@ class Program
         a[j + 1] = k;
         }
     }
+}
+class Person_of_the_year : Person
+{
+    public Person_of_the_year(string _name, int _calls) : base(_name, _calls) 
+    {
+        nomination = "'Человек года'";
+    }
+}
+class Discovery_of_the_year : Person
+{
+    public Discovery_of_the_year(string _name, int _calls) : base(_name, _calls) 
+    {
+        nomination = "'Открытие года'";
+    }
+}
+class Program
+{
+   
     
     static void Main()
     { 
@@ -57,15 +70,10 @@ class Program
             new Person_of_the_year("Владимир", 150),
             new Person_of_the_year("Фёдор", 73)
         };
-        Sort(people);
+        Person.Sort(people);
         int count = 0;
         foreach (Person_of_the_year a in people) count += a.calls;
-        Console.WriteLine("{0,-40:s}{1,-20:s}{2:s}", "Имя участника номинации 'Человек года'", "Количество голосов", "Доля от общего количества ответов");
-        foreach (Person_of_the_year a in people) 
-        {
-            a.Proportion(count);
-            a.Print();
-        }
+        Person.NewPrint(people, count);
         Console.WriteLine();
 
         Discovery_of_the_year[] discoveries =
@@ -76,14 +84,9 @@ class Program
             new Discovery_of_the_year("Себастьян", 93),
             new Discovery_of_the_year("Ариан", 213)
         };
-        Sort(discoveries);
+        Person.Sort(discoveries);
         count = 0;
         foreach (Discovery_of_the_year a in discoveries) count += a.calls;
-        Console.WriteLine("{0,-40:s}{1,-20:s}{2:s}", "Имя участника номинации 'Открытие года'", "Количество голосов", "Доля от общего количества ответов");
-        foreach (Discovery_of_the_year a in discoveries) 
-        {
-            a.Proportion(count);
-            a.Print();
-        }
+        Person.NewPrint(discoveries, count);
     }
 }
