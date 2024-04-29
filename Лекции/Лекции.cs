@@ -600,4 +600,39 @@ static string[] Words(string text)
 //     Console.WriteLine(lines[j]);
 // }
     
-Console.WriteLine(Char.IsLetter('ф'));
+string text = "После многолетних исследований ученые обнаружили тревожную тенденцию в вырубке лесов Амазонии. Анализ данных показал, что основной участник разрушения лесного покрова – человеческая деятельность. За последние десятилетия рост объема вырубки достиг критических показателей. Главными факторами, способствующими этому, являются промышленные рубки, производство древесины, расширение сельскохозяйственных угодий и незаконная добыча древесины. Это приводит к серьезным экологическим последствиям, таким как потеря биоразнообразия, ухудшение климата и угроза вымирания многих видов животных и растений.";
+
+char[,] letters = 
+        {
+            { 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'},
+            { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '$', '$', '$', '$', '$', '$', '$' }
+        };
+        int language = 0;
+        for (int i = 0; i < text.Length; i++)
+        {
+            if (Char.IsLetter(text[i]))
+            {
+                if (text[i] > 64 && text[i] < 123)
+                {
+                    language = 1;
+                    break;
+                }
+                else break;
+            }
+        }
+        int[] counts = new int[33];
+        for (int i = 0; i < text.Length; i++) if (Char.IsUpper(text[i])) text = text.Replace(text[i], Char.ToLower(text[i]));
+        string[] temp = Words(text);
+        text = "";
+        foreach (string a in temp) text += a + " "; 
+        for (int i = 35; i < 68; i++)
+            text = text.Replace(letters[language, i - 35], (char)i);
+        string[] words = text.Split(" ");
+        for (int i = 0; i < words.Length - 1; i++)
+            if ((words[i][0] - 35) < 33) counts[words[i][0] - 35]++;
+        Console.WriteLine("{0,-10:s}{1:s}", "Буква", "Доля");
+        if (language == 0)
+            for (int i = 0; i < 33; i++)
+                if (counts[i] != 0) 
+                    Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
+                else continue;

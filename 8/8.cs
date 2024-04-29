@@ -67,10 +67,14 @@ class Task8 : Task
         }
         for (int j = 0; j < lines.Length; j++)
         {
-            AddSpaces(ref lines[j]);
-            Console.WriteLine(lines[j]);
+            if (lines[j] != null)
+            {
+                AddSpaces(ref lines[j]);
+                Console.WriteLine(lines[j]);
+            }
+            else break;
         }
-        return base.ToString();
+        return "";
     }
 }
 class Task9 : Task 
@@ -206,6 +210,10 @@ class Task12 : Task
         for (int i = 0; i < codes.GetLength(0); i++)
             for (int j = 0; j < array.Length; j++)
                 array[j] = array[j].Replace(codes[i,0], codes[i,1]);
+        Console.WriteLine("Закодированный текст:");
+        foreach (string a in array) Console.Write(a + " ");
+        Console.WriteLine();
+        Console.WriteLine("\nРаскодированный текст:");
         for (int i = 0; i < array.Length; i++)
         {
             if (!char.IsLetter(array[i][0])) 
@@ -213,7 +221,7 @@ class Task12 : Task
                     if (array[i][0].ToString() == codes[j,1]) array[i] = array[i].Replace(codes[j,1], codes[j,0]);
             Console.Write(array[i] + " ");
         }
-        return base.ToString();
+        return "";
     }
 }
 class Task13 : Task
@@ -252,11 +260,14 @@ class Task13 : Task
         Console.WriteLine("{0,-10:s}{1:s}", "Буква", "Доля");
         if (language == 0)
             for (int i = 0; i < 33; i++)
-                Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
+                if (counts[i] != 0) 
+                    Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
+                else continue;
         else
             for (int i = 0; i < 26; i++)
-                Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
-        return base.ToString();
+                if (counts[i] != 0)
+                    Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
+        return "";
     }
 }
 class Task15 : Task
@@ -292,7 +303,7 @@ class Program
         // string text = "Первое кругосветное путешествие было осуществлено флотом, возглавляемым португальским исследователем Фернаном Магелланом. Путешествие началось 20 сентября 1519 года, когда флот, состоящий из пяти кораблей и примерно 270 человек, отправился из порту Сан-Лукас в Испании. Хотя Магеллан не закончил свое путешествие из-за гибели в битве на Филиппинах в 1521 году, его экспедиция стала первой, которая успешно обогнула Землю и доказала ее круглую форму. Это путешествие открыло новые морские пути и имело огромное значение для картографии и географических открытий.";
         string encodedText = "П(# м*го#т$х исс#д/а$й уч%ые 2на3жили тре4жную т%д%цию в вы3бке #с/ Ам0о$и. Анализ дан&х +к0ал, что (*в*й уча'$к -з3ше$я #с*го +кр/а – 1л/еч)кая дея5ль*'ь. За п(#д$е д)яти#т6 ро' 2ъема вы3бки до'иг критич)ких +к0а5#й. Глав&ми факто-ми, сп(2'вующими этому, являются промыш#н&е 3бки, произ4д'4 древ)и&, -сшире$е сельскохозяй'в%&х угодий и незаконная д2ыча древ)и&. Это при4дит к серьез&м экологич)ким п(#д'в6м, таким как +5ря био-з*2-з6, ухудше$е климата и угроза выми-$я м*гих вид/ жи4т&х и -'е$й.";  
         string textRepeat = "После многолетних исследований ученые обнаружили тревожную тенденцию в вырубке лесов Амазонии. Анализ исследований данных показал, что основной участник разрушения исследований лесного покрова Амазонии – человеческая исследований деятельность. За последние десятилетия рост исследований показал объема вырубки Амазонии достиг критических показателей. Главными факторами, способствующими этому, являются промышленные рубки, производство что древесины, расширение сельскохозяйственных угодий и что незаконная добыча древесины. Это приводит к серьезным экологическим показал что последствиям, таким как потеря биоразнообразия, ухудшение климата и угроза вымирания многих видов животных и показал растений ученые.";
-                string[,] codes = 
+        string[,] codes = 
         {
             { "ле", "#" },
             { "ни", "$" },
