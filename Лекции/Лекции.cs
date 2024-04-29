@@ -472,10 +472,10 @@ using System.Reflection.Metadata;
 
 static string[] Words(string text)
     {
-        char[] pattern = { ' ', ',', '.', '!', ';', ':', '?', '-', '(', ')' };
-        text = text.Replace(". ", ".").Replace(", ", ",").Replace("! ", "!").Replace("; ", ";").Replace(": ", ":").Replace("? ", "?").Replace("- ", "-").Replace(" -", "-").Replace("( ", "(").Replace(") ", ")").Replace("– ", "–").Replace(" –", "–");
+        char[] pattern = { ' ', ',', '.', '!', ';', ':', '?', '–', '(', ')' };
         if (Char.IsPunctuation(text[text.Length - 1])) text = text.Remove(text.Length - 1, 1);
-        string[] words = text.Split(pattern);
+        text = text.Replace("'", " ");
+        string[] words = text.Split(pattern, System.StringSplitOptions.RemoveEmptyEntries);
         return words;
     }
 
@@ -516,11 +516,88 @@ static string[] Words(string text)
 //     Console.WriteLine((char)i);
 // }
 // Console.WriteLine(text);
-string text = "После 2 многолетних исследований 234 ученые обнаружили тревожную тенденцию 12.6 в вырубке лесов Амазонии. Анализ данных показал, что основной участник 6664256 разрушения лесного покрова – человеческая деятельность. За последние 0.234 десятилетия рост объема вырубки достиг критических показателей. Главными факторами, способствующими этому, являются промышленные рубки, производство древесины, расширение сельскохозяйственных угодий и незаконная добыча древесины. Это приводит к серьезным экологическим последствиям, таким как потеря биоразнообразия, ухудшение климата и угроза вымирания многих видов животных и растений.";
-double sum = 0;
-string[] words = Words(text);
-for (int i = 0; i < words.Length; i++)
-    if (Char.IsDigit(words[i][0]) && Char.IsDigit(words[i][words[i].Length - 1])) sum += Convert.ToDouble(words[i]);
-Console.WriteLine(sum);
 
-Console.WriteLine(Convert.ToDouble("12,6"));
+// string text = "William Shakespeare, widely regarded as one of the greatest writers in the English language, authored a total of 37 plays, along with numerous poems and sonnets. He was born in Stratford-upon-Avon, England, in 1564, and died in 1616. Shakespeare's most famous works, including 'Romeo and Juliet,' 'Hamlet,' 'Macbeth,' and 'Othello,' were written during the late 16th and early 17th centuries. 'Romeo and Juliet,' a tragic tale of young love, was penned around 1595. 'Hamlet,' one of his most celebrated tragedies, was written in the early 1600s, followed by 'Macbeth,' a gripping drama exploring themes of ambition and power, around 1606. 'Othello,' a tragedy revolving around jealousy and deceit, was also composed during this period, believed to be around 1603.";
+
+// char[,] letters = 
+//         {
+//             { 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'},
+//             { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '$', '$', '$', '$', '$', '$', '$' }
+//         };
+// int language = 0;
+// for (int i = 0; i < text.Length; i++)
+// {
+//     if (Char.IsLetter(text[i]))
+//     {
+//         if (text[i] > 64 && text[i] < 123)
+//         {
+//             language = 1;
+//             break;
+//         }
+//     }
+// }
+// int[] counts = new int[33];
+// for (int i = 0; i < text.Length; i++) if (Char.IsUpper(text[i])) text = text.Replace(text[i], Char.ToLower(text[i]));
+// string[] temp = Words(text);
+// text = "";
+// foreach (string a in temp) text += a + " "; 
+// for (int i = 35; i < 68; i++)
+//     text = text.Replace(letters[language, i - 35], (char)i);
+// string[] words = text.Split(" ");
+// Console.WriteLine(text);
+// for (int i = 0; i < words.Length - 1; i++)
+//     if ((words[i][0] - 35) < 33) counts[words[i][0] - 35]++;
+// Console.WriteLine("{0,-10:s}{1:s}", "Буква", "Доля");
+// if (language == 0)
+//     for (int i = 0; i < 33; i++)
+//         Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
+// else
+//     for (int i = 0; i < 26; i++)
+//         Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
+
+// string text = "1 июля 2015 года Греция объявила о дефолте по государственному долгу, став первой развитой страной в истории, которая не смогла выплатить свои долговые обязательства в полном объеме. Сумма дефолта составила порядка 1,6 миллиарда евро. Этому предшествовали долгие переговоры с международными кредиторами, такими как Международный валютный фонд (МВФ), Европейский центральный банк (ЕЦБ) и Европейская комиссия (ЕК), о программах финансовой помощи и реструктуризации долга. Основными причинами дефолта стали недостаточная эффективность реформ, направленных на улучшение финансовой стабильности страны, а также политическая нестабильность, что вызвало потерю доверия со стороны международных инвесторов и кредиторов. Последствия дефолта оказались глубокими и долгосрочными: сокращение кредитного рейтинга страны, увеличение затрат на заемный капитал, рост стоимости заимствований и утрата доверия со стороны международных инвесторов. ";
+// Console.WriteLine(text.Length);
+
+// static void AddSpaces(ref string a)
+//     {
+//         int i = 0, k = 0;
+//         if (a != null) 
+//         {
+//             int length = a.Length;        
+//             while (length != 50)
+//             {
+//                 if (a[i] == ' ') 
+//                 {
+//                     a = a.Insert(i++, " ");
+//                     k++;
+//                 }
+//                 if (i < a.Length - 1) i++;
+//                 else 
+//                 {
+//                     i = 0;
+//                     if (k == 0) return;
+//                 }
+//                 length = a.Length;
+//             }
+//         }
+//     }
+
+// string[] lines = new string[(text.Length + 1) / 25];
+// int first = 0, last = 49, i = 0;
+// while (last < text.Length + 50)
+// {
+//     if ((last >= text.Length) || (text[last] != ' ')) last--;
+//     else 
+//     {
+//         if (last > first) lines[i++] = text.Substring(first, last - first);
+//         first = ++last; 
+//         last += 50;
+//     }
+// }
+// for (int j = 0; j < lines.Length; j++)
+// {
+//     AddSpaces(ref lines[j]);
+//     Console.WriteLine(lines[j]);
+// }
+    
+Console.WriteLine(Char.IsLetter('ф'));
