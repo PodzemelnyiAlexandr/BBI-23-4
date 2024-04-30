@@ -470,14 +470,14 @@
 using System.Linq.Expressions;
 using System.Reflection.Metadata;
 
-static string[] Words(string text)
-    {
-        char[] pattern = { ' ', ',', '.', '!', ';', ':', '?', '–', '(', ')' };
-        if (Char.IsPunctuation(text[text.Length - 1])) text = text.Remove(text.Length - 1, 1);
-        text = text.Replace("'", " ");
-        string[] words = text.Split(pattern, System.StringSplitOptions.RemoveEmptyEntries);
-        return words;
-    }
+// static string[] Words(string text)
+//     {
+//         char[] pattern = { ' ', ',', '.', '!', ';', ':', '?', '–', '(', ')' };
+//         if (Char.IsPunctuation(text[text.Length - 1])) text = text.Remove(text.Length - 1, 1);
+//         text = text.Replace("'", " ");
+//         string[] words = text.Split(pattern, System.StringSplitOptions.RemoveEmptyEntries);
+//         return words;
+//     }
 
 // char[] letters = { 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'};
 // int[] counts = new int[33];
