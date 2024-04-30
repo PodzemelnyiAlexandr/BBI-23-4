@@ -20,6 +20,31 @@ abstract class Task
         string[] words = text.Split(pattern, System.StringSplitOptions.RemoveEmptyEntries);
         return words;
     }
+    static protected char[] GetUniqueLetters(string text, int chars)
+    {
+        char[] letters = new char[chars];
+        int n = 35;
+        for (int i = 35; i < chars + 35; i++) letters[i-35] = (char)n++;
+        int count = 0;
+        for (int i = 0; i < letters.Length; i++)
+        {
+            for (int j = 0; j < text.Length; j++)
+            {
+                if (letters[i] == text[j])
+                {
+                    for (int k = i; k < letters.Length - 1; k++) // переделать в метод, если будет еще где-то использоваться
+                    {
+                        letters[k] = letters[k+1];
+                    }
+                    letters[letters.Length - 1] = (char)n++;
+                    count++;
+                }
+            }
+        }
+        char[] newletters = new char[letters.Length - count];
+        for (int i = 0; i < letters.Length - count; i++) newletters[i] = letters[i];
+        return newletters;
+    }
 }
 class Task8 : Task
 {
@@ -84,31 +109,7 @@ class Task9 : Task
     { 
         this.frequency = frequency;
     }
-    static private char[] GetUniqueLetters(string text, int chars)
-    {
-        char[] letters = new char[chars];
-        int n = 35;
-        for (int i = 35; i < chars + 35; i++) letters[i-35] = (char)n++;
-        int count = 0;
-        for (int i = 0; i < letters.Length; i++)
-        {
-            for (int j = 0; j < text.Length; j++)
-            {
-                if (letters[i] == text[j])
-                {
-                    for (int k = i; k < letters.Length - 1; k++) // переделать в метод, если будет еще где-то использоваться
-                    {
-                        letters[k] = letters[k+1];
-                    }
-                    letters[letters.Length - 1] = (char)n++;
-                    count++;
-                }
-            }
-        }
-        char[] newletters = new char[letters.Length - count];
-        for (int i = 0; i < letters.Length - count; i++) newletters[i] = letters[i];
-        return newletters;
-    }
+    
     static private bool InArray(string[] array, string a)
     {
         for (int i = 0; i < array.Length; i++) if (array[i] == a)
@@ -195,21 +196,22 @@ class Task10 : Task
 }
 class Task12 : Task
 {
-    private string[,] codes = 
-        {
-            { "ученые", "#" },
-            { "исследований", "$" },
-            { "что", "%" },
-            { "показал", "&" },
-            { "Амазонии", "'" }
-        };
     public Task12(string text) : base(text) { }
     public override string ToString()
     {
+        string[] codes = { "древесины", "и", "в", "движение", "дефолта", "со", "международных", "кредиторов", "стороны", "Фьорды", "and", "a", "the"};
+        char[] letters = GetUniqueLetters(text, 30);
         string[] array = text.Split(" ");
-        for (int i = 0; i < codes.GetLength(0); i++)
-            for (int j = 0; j < array.Length; j++)
-                array[j] = array[j].Replace(codes[i,0], codes[i,1]);
+        for (int i = 0; i < array.Length; i++)
+        {
+            string temp = "";
+            foreach (char a in array[i]) if (Char.IsLetter(a)) temp += a;
+            for (int j = 0; j < codes.GetLength(0); j++)
+            {
+                if (temp == codes[j]) array[i] = array[i].Replace(codes[j], letters[j].ToString());
+            }
+        }
+
         Console.WriteLine("Закодированный текст:");
         foreach (string a in array) Console.Write(a + " ");
         Console.WriteLine();
@@ -218,7 +220,7 @@ class Task12 : Task
         {
             if (!char.IsLetter(array[i][0])) 
                 for (int j = 0; j < codes.GetLength(0); j++)
-                    if (array[i][0].ToString() == codes[j,1]) array[i] = array[i].Replace(codes[j,1], codes[j,0]);
+                    if (array[i][0] == letters[j]) array[i] = array[i].Replace(letters[j].ToString(), codes[j]);
             Console.Write(array[i] + " ");
         }
         return "";
@@ -295,8 +297,8 @@ class Program
     static void Main()
     {
         int[] TaskNumbers = { 8, 9, 10, 12, 13, 15 };
-        // string text = "После многолетних исследований ученые обнаружили тревожную тенденцию в вырубке лесов Амазонии. Анализ данных показал, что основной участник разрушения лесного покрова – человеческая деятельность. За последние десятилетия рост объема вырубки достиг критических показателей. Главными факторами, способствующими этому, являются промышленные рубки, производство древесины, расширение сельскохозяйственных угодий и незаконная добыча древесины. Это приводит к серьезным экологическим последствиям, таким как потеря биоразнообразия, ухудшение климата и угроза вымирания многих видов животных и растений.";
-        string text = "William Shakespeare, widely regarded as one of the greatest writers in the English language, authored a total of 37 plays, along with numerous poems and sonnets. He was born in Stratford-upon-Avon, England, in 1564, and died in 1616. Shakespeare's most famous works, including 'Romeo and Juliet,' 'Hamlet,' 'Macbeth,' and 'Othello,' were written during the late 16th and early 17th centuries. 'Romeo and Juliet,' a tragic tale of young love, was penned around 1595. 'Hamlet,' one of his most celebrated tragedies, was written in the early 1600s, followed by 'Macbeth,' a gripping drama exploring themes of ambition and power, around 1606. 'Othello,' a tragedy revolving around jealousy and deceit, was also composed during this period, believed to be around 1603.";
+        string text = "После многолетних исследований ученые обнаружили тревожную тенденцию в вырубке лесов Амазонии. Анализ данных показал, что основной участник разрушения лесного покрова – человеческая деятельность. За последние десятилетия рост объема вырубки достиг критических показателей. Главными факторами, способствующими этому, являются промышленные рубки, производство древесины, расширение сельскохозяйственных угодий и незаконная добыча древесины. Это приводит к серьезным экологическим последствиям, таким как потеря биоразнообразия, ухудшение климата и угроза вымирания многих видов животных и растений.";
+        // string text = "William Shakespeare, widely regarded as one of the greatest writers in the English language, authored a total of 37 plays, along with numerous poems and sonnets. He was born in Stratford-upon-Avon, England, in 1564, and died in 1616. Shakespeare's most famous works, including 'Romeo and Juliet,' 'Hamlet,' 'Macbeth,' and 'Othello,' were written during the late 16th and early 17th centuries. 'Romeo and Juliet,' a tragic tale of young love, was penned around 1595. 'Hamlet,' one of his most celebrated tragedies, was written in the early 1600s, followed by 'Macbeth,' a gripping drama exploring themes of ambition and power, around 1606. 'Othello,' a tragedy revolving around jealousy and deceit, was also composed during this period, believed to be around 1603.";
         // string text = "Двигатель самолета – это сложная инженерная конструкция, обеспечивающая подъем, управление и движение в воздухе. Он состоит из множества компонентов, каждый из которых играет важную роль в общей работе механизма. Внутреннее устройство двигателя включает в себя компрессор, камеру сгорания, турбину и системы управления и охлаждения. Принцип работы основан на воздушно-топливной смеси, которая подвергается сжатию, воспламенению и расширению, обеспечивая движение воздушного судна.";
         // string text = "1 июля 2015 года Греция объявила о дефолте по государственному долгу, став первой развитой страной в истории, которая не смогла выплатить свои долговые обязательства в полном объеме. Сумма дефолта составила порядка 1,6 миллиарда евро. Этому предшествовали долгие переговоры с международными кредиторами, такими как Международный валютный фонд (МВФ), Европейский центральный банк (ЕЦБ) и Европейская комиссия (ЕК), о программах финансовой помощи и реструктуризации долга. Основными причинами дефолта стали недостаточная эффективность реформ, направленных на улучшение финансовой стабильности страны, а также политическая нестабильность, что вызвало потерю доверия со стороны международных инвесторов и кредиторов. Последствия дефолта оказались глубокими и долгосрочными: сокращение кредитного рейтинга страны, увеличение затрат на заемный капитал, рост стоимости заимствований и утрата доверия со стороны международных инвесторов.";
         // string text = "Фьорды – это ущелья, формирующиеся ледниками и заполняющиеся морской водой. Название происходит от древнескандинавского слова 'fjǫrðr'. Эти глубокие заливы, окруженные высокими горами, представляют захватывающие виды и природную красоту. Они популярны среди туристов и известны под разными названиями: в Норвегии – 'фьорды', в Шотландии – 'фьордс', в Исландии – 'фьордар'. Фьорды играют важную роль в культуре и туризме региона, продолжая вдохновлять людей со всего мира.";
