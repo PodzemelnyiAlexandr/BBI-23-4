@@ -32,7 +32,7 @@ abstract class Task
             {
                 if (letters[i] == text[j])
                 {
-                    for (int k = i; k < letters.Length - 1; k++) // переделать в метод, если будет еще где-то использоваться
+                    for (int k = i; k < letters.Length - 1; k++)
                     {
                         letters[k] = letters[k+1];
                     }
@@ -282,12 +282,13 @@ class Task15 : Task
         for (int i = 0; i < words.Length; i++)
         {
             if (Char.IsDigit(words[i][0]) && Char.IsDigit(words[i][words[i].Length - 1])) sum += Convert.ToDouble(words[i]);
-            else if ((Char.IsDigit(words[i][0]) && Char.IsLetter(words[i][words[i].Length - 1])) || (Char.IsDigit(words[i][0]) && Char.IsPunctuation(words[i][words[i].Length - 1])))
+            else if (Char.IsDigit(words[i][0]) && !Char.IsDigit(words[i][words[i].Length - 1]))
             {
                 string digit = "";
                 for (int j = 0; j < words[i].Length; j++) if (Char.IsDigit(words[i][j])) digit += words[i][j];
                 sum += Convert.ToDouble(digit);
             }
+            else if ((words[i][0] == '-') && Char.IsDigit(words[i][words[i].Length - 1])) sum += Convert.ToDouble(words[i]);
         }
         return sum.ToString();
     }
@@ -296,9 +297,9 @@ class Program
 {
     static void Main()
     {
-        int[] TaskNumbers = { 8, 9, 10, 12, 13, 15 };
-        string text = "После многолетних исследований ученые обнаружили тревожную тенденцию в вырубке лесов Амазонии. Анализ данных показал, что основной участник разрушения лесного покрова – человеческая деятельность. За последние десятилетия рост объема вырубки достиг критических показателей. Главными факторами, способствующими этому, являются промышленные рубки, производство древесины, расширение сельскохозяйственных угодий и незаконная добыча древесины. Это приводит к серьезным экологическим последствиям, таким как потеря биоразнообразия, ухудшение климата и угроза вымирания многих видов животных и растений.";
-        // string text = "William Shakespeare, widely regarded as one of the greatest writers in the English language, authored a total of 37 plays, along with numerous poems and sonnets. He was born in Stratford-upon-Avon, England, in 1564, and died in 1616. Shakespeare's most famous works, including 'Romeo and Juliet,' 'Hamlet,' 'Macbeth,' and 'Othello,' were written during the late 16th and early 17th centuries. 'Romeo and Juliet,' a tragic tale of young love, was penned around 1595. 'Hamlet,' one of his most celebrated tragedies, was written in the early 1600s, followed by 'Macbeth,' a gripping drama exploring themes of ambition and power, around 1606. 'Othello,' a tragedy revolving around jealousy and deceit, was also composed during this period, believed to be around 1603.";
+        int[] TaskNumbers = { 8, 9, 10, 12, 13, 15 }; 
+        // string text = "После многолетних исследований ученые обнаружили тревожную тенденцию в вырубке лесов Амазонии. Анализ данных показал, что основной участник разрушения лесного покрова – человеческая деятельность. За последние десятилетия рост объема вырубки достиг критических показателей. Главными факторами, способствующими этому, являются промышленные рубки, производство древесины, расширение сельскохозяйственных угодий и незаконная добыча древесины. Это приводит к серьезным экологическим последствиям, таким как потеря биоразнообразия, ухудшение климата и угроза вымирания многих видов животных и растений.";
+        string text = "William Shakespeare, widely regarded as one of the greatest writers in the English language, authored a total of 37 plays, along with numerous poems and sonnets. He was born in Stratford-upon-Avon, England, in 1564, and died in 1616. Shakespeare's most famous works, including 'Romeo and Juliet,' 'Hamlet,' 'Macbeth,' and 'Othello,' were written during the late 16th and early 17th centuries. 'Romeo and Juliet,' a tragic tale of young love, was penned around 1595. 'Hamlet,' one of his most celebrated tragedies, was written in the early 1600s, followed by 'Macbeth,' a gripping drama exploring themes of ambition and power, around 1606. 'Othello,' a tragedy revolving around jealousy and deceit, was also composed during this period, believed to be around 1603.";
         // string text = "Двигатель самолета – это сложная инженерная конструкция, обеспечивающая подъем, управление и движение в воздухе. Он состоит из множества компонентов, каждый из которых играет важную роль в общей работе механизма. Внутреннее устройство двигателя включает в себя компрессор, камеру сгорания, турбину и системы управления и охлаждения. Принцип работы основан на воздушно-топливной смеси, которая подвергается сжатию, воспламенению и расширению, обеспечивая движение воздушного судна.";
         // string text = "1 июля 2015 года Греция объявила о дефолте по государственному долгу, став первой развитой страной в истории, которая не смогла выплатить свои долговые обязательства в полном объеме. Сумма дефолта составила порядка 1,6 миллиарда евро. Этому предшествовали долгие переговоры с международными кредиторами, такими как Международный валютный фонд (МВФ), Европейский центральный банк (ЕЦБ) и Европейская комиссия (ЕК), о программах финансовой помощи и реструктуризации долга. Основными причинами дефолта стали недостаточная эффективность реформ, направленных на улучшение финансовой стабильности страны, а также политическая нестабильность, что вызвало потерю доверия со стороны международных инвесторов и кредиторов. Последствия дефолта оказались глубокими и долгосрочными: сокращение кредитного рейтинга страны, увеличение затрат на заемный капитал, рост стоимости заимствований и утрата доверия со стороны международных инвесторов.";
         // string text = "Фьорды – это ущелья, формирующиеся ледниками и заполняющиеся морской водой. Название происходит от древнескандинавского слова 'fjǫrðr'. Эти глубокие заливы, окруженные высокими горами, представляют захватывающие виды и природную красоту. Они популярны среди туристов и известны под разными названиями: в Норвегии – 'фьорды', в Шотландии – 'фьордс', в Исландии – 'фьордар'. Фьорды играют важную роль в культуре и туризме региона, продолжая вдохновлять людей со всего мира.";

@@ -636,53 +636,53 @@ string text = "После многолетних исследований уче
 //                 if (counts[i] != 0) 
 //                     Console.WriteLine("{0,-10:s}{1:f3}", letters[language, i], (double)counts[i] / (words.Length - 1));
 //                 else continue;
-static char[] GetUniqueLetters(string text, int chars)
-    {
-        char[] letters = new char[chars];
-        int n = 35;
-        for (int i = 35; i < chars + 35; i++) letters[i-35] = (char)n++;
-        int count = 0;
-        for (int i = 0; i < letters.Length; i++)
-        {
-            for (int j = 0; j < text.Length; j++)
-            {
-                if (letters[i] == text[j])
-                {
-                    for (int k = i; k < letters.Length - 1; k++) // переделать в метод, если будет еще где-то использоваться
-                    {
-                        letters[k] = letters[k+1];
-                    }
-                    letters[letters.Length - 1] = (char)n++;
-                    count++;
-                }
-            }
-        }
-        char[] newletters = new char[letters.Length - count];
-        for (int i = 0; i < letters.Length - count; i++) newletters[i] = letters[i];
-        return newletters;
-    }
+// static char[] GetUniqueLetters(string text, int chars)
+//     {
+//         char[] letters = new char[chars];
+//         int n = 35;
+//         for (int i = 35; i < chars + 35; i++) letters[i-35] = (char)n++;
+//         int count = 0;
+//         for (int i = 0; i < letters.Length; i++)
+//         {
+//             for (int j = 0; j < text.Length; j++)
+//             {
+//                 if (letters[i] == text[j])
+//                 {
+//                     for (int k = i; k < letters.Length - 1; k++) // переделать в метод, если будет еще где-то использоваться
+//                     {
+//                         letters[k] = letters[k+1];
+//                     }
+//                     letters[letters.Length - 1] = (char)n++;
+//                     count++;
+//                 }
+//             }
+//         }
+//         char[] newletters = new char[letters.Length - count];
+//         for (int i = 0; i < letters.Length - count; i++) newletters[i] = letters[i];
+//         return newletters;
+//     }
 
-string[] codes = { "древесины", "и", "в", "движение", "дефолта", "со", "международных", "кредиторов", "стороны", "Фьорды", "and", "a", "the"};
-char[] letters = GetUniqueLetters(text, 30);
-string[] array = text.Split(" ");
-for (int i = 0; i < array.Length; i++)
-{
-    string temp = "";
-    foreach (char a in array[i]) if (Char.IsLetter(a)) temp += a;
-    for (int j = 0; j < codes.GetLength(0); j++)
-    {
-        if (temp == codes[j]) array[i] = array[i].Replace(codes[j], letters[j].ToString());
-    }
-}
+// string[] codes = { "древесины", "и", "в", "движение", "дефолта", "со", "международных", "кредиторов", "стороны", "Фьорды", "and", "a", "the"};
+// char[] letters = GetUniqueLetters(text, 30);
+// string[] array = text.Split(" ");
+// for (int i = 0; i < array.Length; i++)
+// {
+//     string temp = "";
+//     foreach (char a in array[i]) if (Char.IsLetter(a)) temp += a;
+//     for (int j = 0; j < codes.GetLength(0); j++)
+//     {
+//         if (temp == codes[j]) array[i] = array[i].Replace(codes[j], letters[j].ToString());
+//     }
+// }
 
-Console.WriteLine("Закодированный текст:");
-foreach (string a in array) Console.Write(a + " ");
-Console.WriteLine();
-Console.WriteLine("\nРаскодированный текст:");
-for (int i = 0; i < array.Length; i++)
-{
-    if (!char.IsLetter(array[i][0])) 
-        for (int j = 0; j < codes.GetLength(0); j++)
-            if (array[i][0] == letters[j]) array[i] = array[i].Replace(letters[j].ToString(), codes[j]);
-    Console.Write(array[i] + " ");
-}
+// Console.WriteLine("Закодированный текст:");
+// foreach (string a in array) Console.Write(a + " ");
+// Console.WriteLine();
+// Console.WriteLine("\nРаскодированный текст:");
+// for (int i = 0; i < array.Length; i++)
+// {
+//     if (!char.IsLetter(array[i][0])) 
+//         for (int j = 0; j < codes.GetLength(0); j++)
+//             if (array[i][0] == letters[j]) array[i] = array[i].Replace(letters[j].ToString(), codes[j]);
+//     Console.Write(array[i] + " ");
+// }
