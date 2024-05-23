@@ -1,0 +1,72 @@
+[
+  {
+    "$type": "Person of the year",
+    "Nomination": "Person of the year",
+    "Name": "Vladimir",
+    "Calls": 150,
+    "Prop": 34.64203233256351
+  },
+  {
+    "$type": "Person of the year",
+    "Nomination": "Person of the year",
+    "Name": "Pyotr",
+    "Calls": 110,
+    "Prop": 25.40415704387991
+  },
+  {
+    "$type": "Person of the year",
+    "Nomination": "Person of the year",
+    "Name": "Fyodor",
+    "Calls": 73,
+    "Prop": 16.859122401847575
+  },
+  {
+    "$type": "Person of the year",
+    "Nomination": "Person of the year",
+    "Name": "Ruslan",
+    "Calls": 60,
+    "Prop": 13.856812933025404
+  },
+  {
+    "$type": "Person of the year",
+    "Nomination": "Person of the year",
+    "Name": "Ivan",
+    "Calls": 40,
+    "Prop": 9.237875288683602
+  },
+  {
+    "$type": "Discovery of the year",
+    "Nomination": "Discovery of the year",
+    "Name": "Arian",
+    "Calls": 213,
+    "Prop": 37.765957446808514
+  },
+  {
+    "$type": "Discovery of the year",
+    "Nomination": "Discovery of the year",
+    "Name": "Artyom",
+    "Calls": 187,
+    "Prop": 33.156028368794324
+  },
+  {
+    "$type": "Discovery of the year",
+    "Nomination": "Discovery of the year",
+    "Name": "Sebastian",
+    "Calls": 93,
+    "Prop": 16.48936170212766
+  },
+  {
+    "$type": "Discovery of the year",
+    "Nomination": "Discovery of the year",
+    "Name": "Igor",
+    "Calls": 56,
+    "Prop": 9.929078014184396
+  },
+  {
+    "$type": "Discovery of the year",
+    "Nomination": "Discovery of the year",
+    "Name": "Valentin",
+    "Calls": 15,
+    "Prop": 2.6595744680851063
+  }
+]

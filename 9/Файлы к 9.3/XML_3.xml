@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfArrayofAnswers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayofAnswers>
+    <Answers>
+      <Country xsi:type="Russia">
+        <Answer>Медведь</Answer>
+        <Calls>3</Calls>
+        <Prop>37.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Панда</Answer>
+        <Calls>3</Calls>
+        <Prop>37.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Лиса</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Собака</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Волк</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Ёж</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Голубь</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Лошадь</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Игуана</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Голубь</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+    </Answers>
+  </ArrayofAnswers>
+  <ArrayofAnswers>
+    <Answers>
+      <Country xsi:type="Russia">
+        <Answer>Гордость</Answer>
+        <Calls>3</Calls>
+        <Prop>37.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Доброта</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Доброта</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Аккуратность</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Гордость</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Агрессия</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Неаккуратность</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Честность</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Чистоплотность</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Честность</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+    </Answers>
+  </ArrayofAnswers>
+  <ArrayofAnswers>
+    <Answers>
+      <Country xsi:type="Russia">
+        <Answer>Водка</Answer>
+        <Calls>3</Calls>
+        <Prop>37.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Роллы</Answer>
+        <Calls>3</Calls>
+        <Prop>37.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Холод</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Мир</Answer>
+        <Calls>2</Calls>
+        <Prop>25</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Мир</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Красота</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Answer>Страна</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Красота</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Страна</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Answer>Аниме</Answer>
+        <Calls>1</Calls>
+        <Prop>12.5</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Russia">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+      <Country xsi:type="Japan">
+        <Calls>0</Calls>
+        <Prop>0</Prop>
+      </Country>
+    </Answers>
+  </ArrayofAnswers>
+</ArrayOfArrayofAnswers>

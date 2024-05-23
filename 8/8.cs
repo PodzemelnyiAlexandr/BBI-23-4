@@ -56,8 +56,7 @@ class Task8 : Task
     private static void AddSpaces(ref string a)
     {
         int i = 0, k = 0;
-        if (a != null) 
-        {
+        
             int length = a.Length;        
             while (length != 50)
             {
@@ -73,7 +72,7 @@ class Task8 : Task
                     if (k == 0) return;
                 }
                 length = a.Length;
-            }
+            
         }
     }
     public override string ToString()

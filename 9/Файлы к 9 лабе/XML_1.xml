@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPerson xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Person xsi:type="Person_of_the_year">
+    <Nomination>Person of the year</Nomination>
+    <Name>Vladimir</Name>
+    <Calls>150</Calls>
+    <Prop>34.64203233256351</Prop>
+  </Person>
+  <Person xsi:type="Person_of_the_year">
+    <Nomination>Person of the year</Nomination>
+    <Name>Pyotr</Name>
+    <Calls>110</Calls>
+    <Prop>25.40415704387991</Prop>
+  </Person>
+  <Person xsi:type="Person_of_the_year">
+    <Nomination>Person of the year</Nomination>
+    <Name>Fyodor</Name>
+    <Calls>73</Calls>
+    <Prop>16.859122401847575</Prop>
+  </Person>
+  <Person xsi:type="Person_of_the_year">
+    <Nomination>Person of the year</Nomination>
+    <Name>Ruslan</Name>
+    <Calls>60</Calls>
+    <Prop>13.856812933025404</Prop>
+  </Person>
+  <Person xsi:type="Person_of_the_year">
+    <Nomination>Person of the year</Nomination>
+    <Name>Ivan</Name>
+    <Calls>40</Calls>
+    <Prop>9.237875288683602</Prop>
+  </Person>
+  <Person xsi:type="Discovery_of_the_year">
+    <Nomination>Discovery of the year</Nomination>
+    <Name>Arian</Name>
+    <Calls>213</Calls>
+    <Prop>37.765957446808514</Prop>
+  </Person>
+  <Person xsi:type="Discovery_of_the_year">
+    <Nomination>Discovery of the year</Nomination>
+    <Name>Artyom</Name>
+    <Calls>187</Calls>
+    <Prop>33.156028368794324</Prop>
+  </Person>
+  <Person xsi:type="Discovery_of_the_year">
+    <Nomination>Discovery of the year</Nomination>
+    <Name>Sebastian</Name>
+    <Calls>93</Calls>
+    <Prop>16.48936170212766</Prop>
+  </Person>
+  <Person xsi:type="Discovery_of_the_year">
+    <Nomination>Discovery of the year</Nomination>
+    <Name>Igor</Name>
+    <Calls>56</Calls>
+    <Prop>9.929078014184396</Prop>
+  </Person>
+  <Person xsi:type="Discovery_of_the_year">
+    <Nomination>Discovery of the year</Nomination>
+    <Name>Valentin</Name>
+    <Calls>15</Calls>
+    <Prop>2.6595744680851063</Prop>
+  </Person>
+</ArrayOfPerson>

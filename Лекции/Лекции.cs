@@ -686,3 +686,4 @@ string text = "После многолетних исследований уче
 //             if (array[i][0] == letters[j]) array[i] = array[i].Replace(letters[j].ToString(), codes[j]);
 //     Console.Write(array[i] + " ");
 // }
+
