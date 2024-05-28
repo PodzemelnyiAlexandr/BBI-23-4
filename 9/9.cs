@@ -60,11 +60,27 @@ public abstract class Country
 [ProtoContract]
 public class Russia : Country
 {
+    private static int TotalCount;
+    private static int countOfEmpty;
+    [ProtoMember(7)]
+    public static int CountOfEmpty
+    {
+        get { return countOfEmpty; }
+        set { countOfEmpty = value; }
+    }
     public Russia() : base() { }
-    public Russia(string _answer, int _calls, int count) : base(_answer, _calls, count) {}
+    public Russia(string _answer, int _calls, int count, int totalcount) : base(_answer, _calls, count) 
+    {
+        if (TotalCount == 0)
+        {
+            TotalCount = totalcount;
+            countOfEmpty = TotalCount - 1;
+        }
+        else countOfEmpty = TotalCount - 1;
+    }
     public override void Print()
     {
-        Console.WriteLine(" Ответ '{0}' в России был выбран {1} раз(а), доля от всех ответов: {2:f1}%", answer, calls, prop);
+        Console.WriteLine(" Ответ '{0}' в России был выбран {1} раз(а), доля от всех ответов: {2:f1}%, количество ответов '-': ", answer, calls, prop, countOfEmpty);
     }
 }
 [ProtoContract]
@@ -163,6 +179,7 @@ class Program
         };
         List<ArrayofAnswers> totalRussia = new List<ArrayofAnswers>(3);
         last = 0; count = 0;
+        int totalcount = 0;
         for (int k = 0; k < 3; k++)
         {
             Country[] tempRussia = new Country[russia.GetLength(1)];
@@ -181,9 +198,10 @@ class Program
                     else AnswersCalls[InArray(russia[k,i], AnswersSorted)] += 1;
                     count++;
                 }
+                totalcount++;
             for (int i = 0; i < AnswersSorted.Length; i++) 
             {
-                tempRussia[i] = new Russia(AnswersSorted[i], AnswersCalls[i], count);
+                tempRussia[i] = new Russia(AnswersSorted[i], AnswersCalls[i], count, totalcount);
             }
             totalRussia.Add(new ArrayofAnswers(tempRussia));
         }
